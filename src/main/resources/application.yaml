@@ -1,0 +1,13 @@
+spring:
+  application:
+    nome: Livraria-system
+    datasource:
+      url:jdbc:h2:mem:Slivros
+      username:root
+      password:root
+    jpa:
+      Database-plataform: org.hibernate.dialect.H2Database
+    h2:
+      console:
+        enabled: true
+        path: /livraria
