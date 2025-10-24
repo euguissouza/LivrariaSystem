@@ -1,5 +1,6 @@
 package com.projeto_de_pesquisa.Livraria_System.Prateleira;
 
+import com.projeto_de_pesquisa.Livraria_System.Services.SendStatus;
 import jakarta.persistence.*;
 
 @Entity
@@ -55,6 +56,13 @@ public class Livro {
 
     public void setCapa(Capa capa) {
         this.capa = capa;
+    }
+
+    public SendStatus responseStatus(Editora editor){
+        if(this.genero != editor.getGenero()){
+            return new SendStatus("Essa editora só produz material do genero " + editora.getGenero());
+        }
+        return new SendStatus("Livro Cadastrado com sucesso");
     }
 
     @Override
