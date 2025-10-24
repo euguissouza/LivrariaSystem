@@ -1,11 +1,13 @@
 package com.projeto_de_pesquisa.Livraria_System.Prateleira;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name ="Editora")
 public class Editora {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int Id;
     private String nome;
     private Genero genero;
 
@@ -23,5 +25,13 @@ public class Editora {
 
     public void setGenero(Genero genero) {
         this.genero = genero;
+    }
+
+    @Override
+    public String toString() {
+        return "Editora{" +
+                "nome='" + nome + '\'' +
+                ", genero=" + genero +
+                '}';
     }
 }

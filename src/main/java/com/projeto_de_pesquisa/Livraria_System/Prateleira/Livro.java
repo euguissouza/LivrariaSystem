@@ -8,7 +8,12 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
+    private String titulo;
+
+    @ManyToOne
+    @JoinColumn(name = "editora_id")
     private Editora editora;
+
     private Genero genero;
     private Capa capa;
 
@@ -18,6 +23,14 @@ public class Livro {
 
     public void setId(int id) {
         Id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public Editora getEditora() {
@@ -48,6 +61,7 @@ public class Livro {
     public String toString() {
         return "Livro{" +
                 "Id=" + Id +
+                ", titulo=" + titulo +
                 ", editora=" + editora +
                 ", genero=" + genero +
                 ", capa=" + capa +
